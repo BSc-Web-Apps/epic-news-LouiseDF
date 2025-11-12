@@ -5,7 +5,8 @@ import { GeneralErrorBoundary } from './components/error-boundary.tsx'
 import Document from './components/shared-layout/Document.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
 import rootLinkElements from './utils/providers/rootLinkElements.ts'
-import portrait1 from '~/assets/jpg/portrait-01.jpg'
+
+import portrait1 from '~/assets/jpg/portrait-01.jpg' // Your image path
 
 export const links: Route.LinksFunction = () => {
 	return rootLinkElements
@@ -28,7 +29,7 @@ export default function App() {
 							found.
 						</p>
 						<img src={portrait1} alt="Portraitn 1"></img>
-						<p>Michael Angelo</p>
+						<h2>Michael Angelo</h2>
 					</main>
 				</div>
 			</div>
