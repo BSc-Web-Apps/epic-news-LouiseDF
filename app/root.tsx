@@ -1,3 +1,4 @@
+import { RiTwitterXFill, RiLinkedinBoxFill } from 'react-icons/ri'
 import { useLoaderData } from 'react-router'
 import { type Route } from './+types/root.ts'
 import { type loader } from './__root.server.tsx'
@@ -6,8 +7,7 @@ import Document from './components/shared-layout/Document.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
 import rootLinkElements from './utils/providers/rootLinkElements.ts'
 
-import portrait1 from '~/assets/jpg/portrait-01.jpg' // Your image path
-
+import portrait1 from '~/assets/jpg/portrait-01.jpg'
 export const links: Route.LinksFunction = () => {
 	return rootLinkElements
 }
@@ -23,13 +23,28 @@ export default function App() {
 			<div className="flex h-screen flex-col justify-between">
 				<div className="flex-1">
 					<main className="grid h-full place-items-center">
-						<h1 className="text-mega">Your Journey Begins!</h1>
-						<p className="text-base text-gray-200 md:text-lg lg:text-xl">
-							Welcome to Epic News, where the latest developments in tech are
-							found.
-						</p>
-						<img src={portrait1} alt="Portraitn 1"></img>
-						<h2>Michael Angelo</h2>
+						<h1 className="text-mega">Epic News</h1>
+						<div className="w-fit rounded-lg bg-slate-800 p-8">
+							<img
+								src={portrait1}
+								alt="An employee"
+								className="mx-auto h-64 w-64 rounded-full"
+							/>
+
+							<div className="pt-6">
+								<h3 className="font-semi-bold text-center text-white">
+									Leonard Krasner
+								</h3>
+								<p className="pt-1 text-center text-slate-400">
+									Senior Designer
+								</p>
+
+								<div className="flex justify-center gap-4 pt-6 text-slate-400">
+									<RiTwitterXFill />
+									<RiLinkedinBoxFill />
+								</div>
+							</div>
+						</div>
 					</main>
 				</div>
 			</div>
