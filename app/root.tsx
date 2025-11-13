@@ -54,23 +54,25 @@ export default function App() {
 					<main className="grid h-full place-items-center">
 						<h1 className="text-mega">Epic News</h1>
 
-						<TeamMemberCard
-							name="Leonard"
-							role="Senior Developer"
-							imageSrc={portrait1}
-						/>
+						<div className="m-4 flex gap-8">
+							<TeamMemberCard
+								name="Leonard"
+								role="Senior Developer"
+								imageSrc={portrait1}
+							/>
 
-						<TeamMemberCard
-							name="John Smith"
-							role="Lead Developer"
-							imageSrc={portrait2}
-						/>
+							<TeamMemberCard
+								name="John Smith"
+								role="Lead Developer"
+								imageSrc={portrait2}
+							/>
 
-						<TeamMemberCard
-							name="Jane-Doe"
-							role="Lead Developer"
-							imageSrc={portrait3}
-						/>
+							<TeamMemberCard
+								name="Jane-Doe"
+								role="Lead Developer"
+								imageSrc={portrait3}
+							/>
+						</div>
 					</main>
 				</div>
 			</div>
