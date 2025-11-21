@@ -3,6 +3,7 @@ import { SearchBar } from '#app/components/search-bar.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { UserDropdown } from '#app/components/user-dropdown.tsx'
 import { useOptionalUser } from '#app/utils/user.ts'
+import logo from '~/assets/png/epic-news-logo.png'
 
 export default function HeaderWithSearch() {
 	const matches = useMatches()
@@ -11,8 +12,21 @@ export default function HeaderWithSearch() {
 	const user = useOptionalUser()
 
 	return (
-		<header className="container py-6">
-			<nav className="flex flex-wrap items-center justify-between gap-4 sm:flex-nowrap md:gap-8">
+		<header className="container bg-blue-500 py-6">
+			<nav className="flex flex-wrap items-center justify-between gap-4 bg-blue-500 sm:flex-nowrap md:gap-8">
+				<Link to="/" className="flex items-center gap-4">
+					<div className="flex items-center justify-around gap-4">
+						<img src={logo} alt="Epic News Logo" className="w-16" />
+						<span className="text-foreground text-sm">Epic News</span>
+					</div>
+				</Link>
+				<Link
+					to="/news"
+					className="text-foreground ml-4 hidden text-sm transition-colors hover:text-yellow-300 sm:inline-block"
+					aria-label="News"
+				>
+					News
+				</Link>
 				<div className="ml-auto hidden max-w-sm flex-1 sm:block">
 					{searchBar}
 				</div>
