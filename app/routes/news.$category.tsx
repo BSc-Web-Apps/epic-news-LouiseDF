@@ -24,7 +24,7 @@ export default function NewsCategoryPage() {
 		<div className="container py-16">
 			<h2 className="text-h2 m-8 flex gap-8">{categoryTitle}</h2>
 
-			<div className="m-8 grid grid-cols-5 gap-6">
+			<div className="m-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 				<WireframeBlock />
 				<WireframeBlock />
 				<WireframeBlock />
@@ -32,7 +32,7 @@ export default function NewsCategoryPage() {
 				<WireframeBlock />
 			</div>
 
-			<div className="m-8 grid grid-cols-5 gap-6">
+			<div className="m-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 				<WireframeBlock />
 				<WireframeBlock />
 				<WireframeBlock />
