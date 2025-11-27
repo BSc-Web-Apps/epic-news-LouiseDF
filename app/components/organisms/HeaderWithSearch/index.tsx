@@ -20,13 +20,34 @@ export default function HeaderWithSearch() {
 						<span className="text-foreground text-sm">Epic News</span>
 					</div>
 				</Link>
+
+				<div className="flex flex-1 justify-center gap-8"></div>
+
+				<Link
+					to="/about-us"
+					prefetch="intent"
+					className="text-foreground ml-4 hidden text-sm transition-colors hover:text-yellow-300 sm:inline-block"
+				>
+					About us
+				</Link>
+
 				<Link
 					to="/news"
+					prefetch="intent"
 					className="text-foreground ml-4 hidden text-sm transition-colors hover:text-yellow-300 sm:inline-block"
 					aria-label="News"
 				>
 					News
 				</Link>
+
+				<Link
+					to="/contact-us"
+					prefetch="intent"
+					className="text-foreground ml-4 hidden text-sm transition-colors hover:text-yellow-300 sm:inline-block"
+				>
+					Contact Us
+				</Link>
+
 				<div className="ml-auto hidden max-w-sm flex-1 sm:block">
 					{searchBar}
 				</div>

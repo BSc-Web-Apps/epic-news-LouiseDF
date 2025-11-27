@@ -1,5 +1,5 @@
 import { RiTwitterXFill, RiLinkedinBoxFill } from 'react-icons/ri'
-import { useLoaderData } from 'react-router'
+import { useLoaderData, Outlet } from 'react-router'
 import { type Route } from './+types/root.ts'
 import { type loader } from './__root.server.tsx'
 import { GeneralErrorBoundary } from './components/error-boundary.tsx'
@@ -59,7 +59,7 @@ export default function App() {
 			<HeaderWithSearch />
 			<div className="flex h-screen flex-col justify-between">
 				<div className="flex-1">
-					<main className="grid h-full place-items-center">
+					{/* <main className="grid h-full place-items-center">
 						<h1 className="text-mega text-blue-800">Epic News</h1>
 
 						<div className="w-full py-16">
@@ -95,7 +95,9 @@ export default function App() {
 								imageSrc={portrait3}
 							/>
 						</div>
-					</main>
+					</main> */}
+
+					<Outlet />
 				</div>
 				<div className="container flex justify-between pb-5">
 					<ThemeSwitch userPreference={data?.requestInfo.userPrefs.theme} />
