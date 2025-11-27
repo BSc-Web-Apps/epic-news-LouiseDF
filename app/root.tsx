@@ -1,53 +1,19 @@
-import { RiTwitterXFill, RiLinkedinBoxFill } from 'react-icons/ri'
-import { useLoaderData, Outlet } from 'react-router'
+import { Outlet, useLoaderData } from 'react-router'
 import { type Route } from './+types/root.ts'
 import { type loader } from './__root.server.tsx'
 import { GeneralErrorBoundary } from './components/error-boundary.tsx'
 import FooterLogoCentre from './components/organisms/Footer/FooterLogoCentre.tsx'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch'
-import HeroCallToAction from './components/organisms/Hero/HeroCallToAction.tsx'
 import Document from './components/shared-layout/Document.tsx'
 import { ThemeSwitch, useTheme } from './routes/resources+/theme-switch.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
 import rootLinkElements from './utils/providers/rootLinkElements.ts'
-import portrait1 from '~/assets/jpg/portrait-01.jpg'
-import portrait2 from '~/assets/jpg/portrait-02.jpg'
-import portrait3 from '~/assets/jpg/portrait-03.jpg'
-import hero from '~/assets/jpg/sample-hero.jpg'
 
 export const links: Route.LinksFunction = () => {
 	return rootLinkElements
 }
 export { meta } from './__root.client.tsx'
 export { headers, loader } from './__root.server.tsx'
-
-interface TeamMemberCardProps {
-	name: string
-	role: string
-	imageSrc: string
-}
-
-export function TeamMemberCard({ name, role, imageSrc }: TeamMemberCardProps) {
-	return (
-		<div className="w-fit rounded-lg bg-slate-800 p-8">
-			<img
-				src={imageSrc}
-				alt="An employee"
-				className="mx-auto h-64 w-64 rounded-full"
-			/>
-
-			<div className="pt-6">
-				<h3 className="text-center font-semibold text-white">{name}</h3>
-				<p className="pt-1 text-center text-slate-400">{role}</p>
-
-				<div className="flex justify-center gap-4 pt-6 text-slate-400">
-					<RiTwitterXFill />
-					<RiLinkedinBoxFill />
-				</div>
-			</div>
-		</div>
-	)
-}
 
 export default function App() {
 	const data = useLoaderData<typeof loader | null>()
@@ -59,44 +25,6 @@ export default function App() {
 			<HeaderWithSearch />
 			<div className="flex h-screen flex-col justify-between">
 				<div className="flex-1">
-					{/* <main className="grid h-full place-items-center">
-						<h1 className="text-mega text-blue-800">Epic News</h1>
-
-						<div className="w-full py-16">
-							<HeroCallToAction image={hero} imageRight={true}>
-								<div className="flex flex-col gap-8">
-									<h2 className="text-h2 px-8 text-blue-500">
-										Welcome to Epic News
-									</h2>
-									<p className="text-lg">
-										Keep up to date with the latest local news across the
-										islands.
-									</p>
-								</div>
-							</HeroCallToAction>
-						</div>
-
-						<div className="m-4 flex gap-8">
-							<TeamMemberCard
-								name="Leonard"
-								role="Senior Developer"
-								imageSrc={portrait1}
-							/>
-
-							<TeamMemberCard
-								name="John Smith"
-								role="Lead Developer"
-								imageSrc={portrait2}
-							/>
-
-							<TeamMemberCard
-								name="Jane-Doe"
-								role="Lead Developer"
-								imageSrc={portrait3}
-							/>
-						</div>
-					</main> */}
-
 					<Outlet />
 				</div>
 				<div className="container flex justify-between pb-5">

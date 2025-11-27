@@ -2,7 +2,7 @@ import { NavLink, Outlet } from 'react-router'
 
 export default function NewsPage() {
 	return (
-		<main className="flex flex-col py-24">
+		<main className="flex flex-col gap-4 py-24">
 			<div className="container">
 				<h1 className="text-h1">Latest News</h1>
 				<div className="flex space-x-4 py-4">
