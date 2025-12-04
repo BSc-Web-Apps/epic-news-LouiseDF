@@ -12,12 +12,14 @@ export default function HeaderWithSearch() {
 	const user = useOptionalUser()
 
 	return (
-		<header className="container bg-blue-500 py-6">
-			<nav className="flex flex-wrap items-center justify-between gap-4 bg-blue-500 sm:flex-nowrap md:gap-8">
+		<header className="bg-blue-600 p-6">
+			<nav className="flex flex-wrap items-center justify-between gap-4 bg-blue-600 sm:flex-nowrap md:gap-8">
 				<Link to="/" className="flex items-center gap-4">
 					<div className="flex items-center justify-around gap-4">
 						<img src={logo} alt="Epic News Logo" className="w-16" />
-						<span className="text-foreground text-sm">Epic News</span>
+						<span className="text-foreground text-3xl font-bold">
+							Epic News
+						</span>
 					</div>
 				</Link>
 
