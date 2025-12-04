@@ -4,7 +4,7 @@ import SocialMediaButtons from '#app/components/molecules/SocialMediaButtons'
 import { type FooterProps } from './FooterBasic'
 
 const FooterLogoCentre = ({
-	companyName = 'CHANGE THIS TO YOUR COMPANY NAME!',
+	companyName = 'EPIC NEWS',
 	altText = 'Our company logo',
 }: FooterProps) => {
 	return (
@@ -13,13 +13,13 @@ const FooterLogoCentre = ({
 				<div className="border-muted-foreground/75 dark:border-dark-muted-foreground/75 flex flex-col items-center justify-around border-b lg:flex-row lg:pb-8">
 					<div className="text-secondary-foreground dark:text-dark-secondary-foreground flex flex-col items-start gap-6 py-8 font-bold lg:flex-row">
 						<div>
-							<NavLink to="#">Nav Label</NavLink>
+							<NavLink to="/about-us">About Us</NavLink>
 						</div>
 						<div>
-							<NavLink to="#">Nav Label</NavLink>
+							<NavLink to="/news">News</NavLink>
 						</div>
 						<div>
-							<NavLink to="#">Nav Label</NavLink>
+							<NavLink to="/contact-us">Contact Us</NavLink>
 						</div>
 					</div>
 
