@@ -50,20 +50,20 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 export async function action({ request }: Route.ActionArgs) {
-	// try {
-	// 	await csrf.validate(request)
-	// } catch (error) {
-	// 	if (error instanceof CSRFError) {
-	// 		return redirectWithToast(`/`, {
-	// 			description: 'CSRF token is invalid. Please try again in a new window',
-	// 			type: 'error',
-	// 		})
-	// 	}
-	// 	return redirectWithToast(`/`, {
-	// 		description: 'Something went wrong. Please try again in a new window',
-	// 		type: 'error',
-	// 	})
-	// }
+	try {
+		await csrf.validate(request)
+	} catch (error) {
+		if (error instanceof CSRFError) {
+			return redirectWithToast(`/`, {
+				description: 'CSRF token is invalid. Please try again in a new window',
+				type: 'error',
+			})
+		}
+		return redirectWithToast(`/`, {
+			description: 'Something went wrong. Please try again in a new window',
+			type: 'error',
+		})
+	}
 
 	await requireAnonymous(request)
 	const formData = await request.formData()
@@ -134,6 +134,7 @@ export default function LoginPage({ actionData }: Route.ComponentProps) {
 				<div>
 					<div className="mx-auto w-full max-w-md px-8">
 						<Form method="POST" {...getFormProps(form)}>
+							<AuthenticityTokenInput />
 							<HoneypotInputs />
 							<Field
 								labelProps={{ children: 'Username' }}

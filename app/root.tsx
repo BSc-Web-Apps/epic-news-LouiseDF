@@ -1,16 +1,16 @@
 import { Outlet, useLoaderData } from 'react-router'
+import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { type Route } from './+types/root.ts'
 import { type loader } from './__root.server.tsx'
 import { GeneralErrorBoundary } from './components/error-boundary.tsx'
 import FooterLogoCentre from './components/organisms/Footer/FooterLogoCentre.tsx'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch'
 import Document from './components/shared-layout/Document.tsx'
+import { useToast } from './components/toaster.tsx'
+import { EpicToaster } from './components/ui/sonner.tsx'
 import { ThemeSwitch, useTheme } from './routes/resources+/theme-switch.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
 import rootLinkElements from './utils/providers/rootLinkElements.ts'
-import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
-import { EpicToaster } from './components/ui/sonner.tsx'
-import { useToast } from './components/toaster.tsx'
 
 export const links: Route.LinksFunction = () => {
 	return rootLinkElements
