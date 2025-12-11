@@ -1,12 +1,27 @@
 import { RiLinkedinBoxFill, RiTwitterXFill } from 'react-icons/ri'
-import { type MetaFunction } from 'react-router'
+import { data, type MetaFunction, useLoaderData } from 'react-router'
 import HeroCallToAction from '#app/components/organisms/Hero/HeroCallToAction.tsx'
 import portrait1 from '~/assets/jpg/portrait-01.jpg'
 import portrait2 from '~/assets/jpg/portrait-02.jpg'
 import portrait3 from '~/assets/jpg/portrait-03.jpg'
 import hero from '~/assets/jpg/sample-hero.jpg'
+import ArticleCard from '~/components/organisms/ArticleCard.tsx'
+import { prisma } from '~/utils/db.server.ts'
 
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
+
+export async function loader() {
+	const allArticles = await prisma.article.findMany({
+		select: {
+			id: true,
+			title: true,
+			category: { select: { name: true } },
+			images: { select: { objectKey: true } },
+		},
+	})
+
+	return data({ allArticles })
+}
 
 interface TeamMemberCardProps {
 	name: string
@@ -37,6 +52,8 @@ export function TeamMemberCard({ name, role, imageSrc }: TeamMemberCardProps) {
 }
 
 export default function Index() {
+	const { allArticles } = useLoaderData<typeof loader>()
+
 	return (
 		<main className="grid h-full place-items-center">
 			<h1 className="text-mega text-blue-800">Epic News</h1>
@@ -70,6 +87,23 @@ export default function Index() {
 					role="Lead Developer"
 					imageSrc={portrait3}
 				/>
+			</div>
+			<div className="container py-16">
+				<h2 className="text-h2 mb-8 font-normal">Latest news</h2>
+
+				<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+					{allArticles.length > 0 ? (
+						allArticles.map((article) => (
+							<ArticleCard
+								key={article.id}
+								title={article.title}
+								category={article.category?.name}
+							/>
+						))
+					) : (
+						<p>No articles found</p>
+					)}
+				</div>
 			</div>
 		</main>
 	)

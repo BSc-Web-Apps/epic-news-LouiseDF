@@ -7,43 +7,43 @@ export default function NewsPage() {
 				<h1 className="text-h1">Latest News</h1>
 				<div className="flex space-x-4 py-4">
 					<NavLink
-						to="local news"
+						to="Buisness"
 						prefetch="intent"
 						className={({ isActive }) =>
 							`${isActive ? 'text-blue-300 underline underline-offset-8' : 'text-blue-500 transition-colors hover:text-yellow-300 sm:inline-block'}`
 						}
 					>
-						Local News
+						Buisness
 					</NavLink>
 
 					<NavLink
-						to="sport"
+						to="entertainment"
 						prefetch="intent"
 						className={({ isActive }) =>
 							`${isActive ? 'text-blue-300 underline underline-offset-8' : 'text-blue-500 transition-colors hover:text-yellow-300 sm:inline-block'}`
 						}
 					>
-						Sport
+						Entertainment
 					</NavLink>
 
 					<NavLink
-						to="health"
+						to="Technology"
 						prefetch="intent"
 						className={({ isActive }) =>
 							`${isActive ? 'text-blue-300 underline underline-offset-8' : 'text-blue-500 transition-colors hover:text-yellow-300 sm:inline-block'}`
 						}
 					>
-						Health
+						Technology
 					</NavLink>
 
 					<NavLink
-						to="travel"
+						to="general News"
 						prefetch="intent"
 						className={({ isActive }) =>
 							`${isActive ? 'text-blue-300 underline underline-offset-8' : 'text-blue-500 transition-colors hover:text-yellow-300 sm:inline-block'}`
 						}
 					>
-						Travel
+						General News
 					</NavLink>
 				</div>
 			</div>
