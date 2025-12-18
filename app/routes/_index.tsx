@@ -93,13 +93,19 @@ export default function Index() {
 
 				<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
 					{allArticles.length > 0 ? (
-						allArticles.map((article) => (
-							<ArticleCard
-								key={article.id}
-								title={article.title}
-								category={article.category?.name}
-							/>
-						))
+						allArticles.map((article, index) => {
+							;`1`
+							return index === 0 ? (
+								<div className="col-span-2 row-span-2"></div>
+							) : (
+								<ArticleCard
+									key={article.id}
+									articleId={article.id}
+									title={article.title}
+									category={article.category?.name}
+								/>
+							)
+						})
 					) : (
 						<p>No articles found</p>
 					)}
