@@ -29,11 +29,13 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function NewsCategoryPage() {
 	const { categoryTitle, filteredArticles } = useLoaderData<typeof loader>()
+	const hasArticles = filteredArticles.length > 0
+
+	console.log({ filteredArticles, hasArticles })
 
 	return (
 		<div className="container py-16">
 			<h2 className="text-h2 m-8 flex gap-8">{categoryTitle}</h2>
-
 			<div className="m-8 grid gap-4 py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 				{filteredArticles.map((article) => (
 					<ArticleCard
@@ -44,8 +46,9 @@ export default function NewsCategoryPage() {
 					/>
 				))}
 			</div>
-
-			<div className="m-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"></div>
+			<div className="text-h4 m-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+				There is no {categoryTitle} Articles
+			</div>
 		</div>
 	)
 }
