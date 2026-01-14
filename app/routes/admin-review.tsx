@@ -1,8 +1,16 @@
-import { data, NavLink, Outlet, useLoaderData } from 'react-router'
+import {
+	type LoaderFunctionArgs,
+	data,
+	NavLink,
+	Outlet,
+	useLoaderData,
+} from 'react-router'
 import { prisma } from '~/utils/db.server.ts'
 import { cn } from '~/utils/misc.tsx'
+import { requireUserWithRole } from '~/utils/permissions.server.js'
 
-export async function loader() {
+export async function loader({ request }: LoaderFunctionArgs) {
+	await requireUserWithRole(request, 'admin')
 	const allArticles = await prisma.article.findMany({
 		select: { id: true, title: true, isPublished: true },
 	})
