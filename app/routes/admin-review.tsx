@@ -5,6 +5,8 @@ import {
 	Outlet,
 	useLoaderData,
 } from 'react-router'
+import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
+import { Button } from '~/components/atoms/Button.js'
 import { prisma } from '~/utils/db.server.ts'
 import { cn } from '~/utils/misc.tsx'
 import { requireUserWithRole } from '~/utils/permissions.server.js'
@@ -71,5 +73,25 @@ export default function ArticlesRoute() {
 				</div>
 			</div>
 		</main>
+	)
+}
+
+export function ErrorBoundary() {
+	return (
+		<GeneralErrorBoundary
+			statusHandlers={{
+				403: () => (
+					<div>
+						<p>You are not allowed to access this page.</p>
+						<p>
+							Please login with an administrator account, or contact support.
+						</p>
+						<Button>
+							<NavLink to="/login">Login</NavLink>
+						</Button>
+					</div>
+				),
+			}}
+		/>
 	)
 }
