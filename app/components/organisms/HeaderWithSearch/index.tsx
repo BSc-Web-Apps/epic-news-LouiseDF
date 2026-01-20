@@ -28,7 +28,7 @@ export default function HeaderWithSearch() {
 				{isAdminUser && (
 					<Link
 						to="/admin-review"
-						className="text-foreground rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold transition hover:bg-blue-900"
+						className="text-foreground hover:scale-100bg-blue-900 rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold transition"
 					>
 						Admin Review
 					</Link>

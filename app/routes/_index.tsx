@@ -102,7 +102,7 @@ export default function Index() {
 				{hasGeneralArticles ? (
 					generalArticles.map((article) => {
 						return (
-							<div key={article.id} className="col-span-2 row-span-2">
+							<div key={article.id} className="col-span-2 row-span-2 px-4 py-2">
 								<ArticleCard
 									articleId={article.id}
 									title={article.title}
