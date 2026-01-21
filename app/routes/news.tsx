@@ -7,7 +7,7 @@ export default function NewsPage() {
 				<h1 className="text-h1">Latest News</h1>
 				<div className="flex space-x-4 py-4">
 					<NavLink
-						to="Buisness"
+						to="buisness"
 						prefetch="intent"
 						className={({ isActive }) =>
 							`${isActive ? 'text-blue-300 underline underline-offset-8' : 'text-blue-500 transition-colors hover:text-yellow-300 sm:inline-block'}`
@@ -27,7 +27,7 @@ export default function NewsPage() {
 					</NavLink>
 
 					<NavLink
-						to="Technology"
+						to="technology"
 						prefetch="intent"
 						className={({ isActive }) =>
 							`${isActive ? 'text-blue-300 underline underline-offset-8' : 'text-blue-500 transition-colors hover:text-yellow-300 sm:inline-block'}`
@@ -37,7 +37,7 @@ export default function NewsPage() {
 					</NavLink>
 
 					<NavLink
-						to="general News"
+						to="general news"
 						prefetch="intent"
 						className={({ isActive }) =>
 							`${isActive ? 'text-blue-300 underline underline-offset-8' : 'text-blue-500 transition-colors hover:text-yellow-300 sm:inline-block'}`
